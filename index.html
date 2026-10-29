@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AR Chair Viewer</title>
+
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .heading {
+      position: fixed;
+      top: 12px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: white;
+      z-index: 10;
+      text-shadow: 1px 1px 4px black;
+      pointer-events: none;
+    }
+
+    .heading h2 {
+      margin-bottom: 5px;
+    }
+
+    .heading p {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="heading">
+    <h2>AR Chair Viewer</h2>
+    <p>Point your camera at the HIRO marker</p>
+  </div>
+
+  <a-scene
+    embedded
+    vr-mode-ui="enabled: false"
+    arjs="sourceType: webcam; debugUIEnabled: false;"
+    renderer="colorManagement: true;">
+
+    <a-marker preset="hiro">
+
+      <!-- Chair seat -->
+      <a-box
+        position="0 0.60 0"
+        width="0.85"
+        height="0.12"
+        depth="0.80"
+        color="#8B4513">
+      </a-box>
+
+      <!-- Front left leg -->
+      <a-box
+        position="-0.30 0.29 0.28"
+        width="0.09"
+        height="0.58"
+        depth="0.09"
+        color="#654321">
+      </a-box>
+
+      <!-- Front right leg -->
+      <a-box
+        position="0.30 0.29 0.28"
+        width="0.09"
+        height="0.58"
+        depth="0.09"
+        color="#654321">
+      </a-box>
+
+      <!-- Back left leg -->
+      <a-box
+        position="-0.30 0.52 -0.28"
+        width="0.09"
+        height="1.04"
+        depth="0.09"
+        color="#654321">
+      </a-box>
+
+      <!-- Back right leg -->
+      <a-box
+        position="0.30 0.52 -0.28"
+        width="0.09"
+        height="1.04"
+        depth="0.09"
+        color="#654321">
+      </a-box>
+
+      <!-- Chair backrest -->
+      <a-box
+        position="0 1.02 -0.30"
+        width="0.72"
+        height="0.70"
+        depth="0.10"
+        color="#A0522D">
+      </a-box>
+
+    </a-marker>
+
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+</html>
